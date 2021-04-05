@@ -3,7 +3,11 @@
   "version": "1.0.0",
   "description": "",
   "main": "bin.js",
+  "bin": {
+    "sql-cli": "bin.js"
+  },
   "scripts": {
+    "eslint": "eslint lib",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -14,5 +18,31 @@
     "commander": "^7.2.0",
     "inquirer": "^8.0.0",
     "rxjs": "^6.6.7"
+  },
+  "devDependencies": {
+    "chai": "^4.3.4",
+    "co-mocha": "^1.2.2",
+    "eslint": "^7.23.0",
+    "eslint-config-airbnb": "^18.2.1",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-react": "^7.23.1",
+    "mocha": "^8.3.2",
+    "nyc": "^15.1.0",
+    "sinon": "^10.0.0"
+  },
+  "nyc": {
+    "include": [
+      "src/**/**.js",
+      "src/*.js"
+    ],
+    "exclude": [
+      "src/**/**.spec.js"
+    ],
+    "reporter": [
+      "html",
+      "text-summary"
+    ]
   }
 }
