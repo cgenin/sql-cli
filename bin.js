@@ -3,7 +3,8 @@
 const { Command } = require('commander');
 const { version } = require('./package.json');
 const { ls, create } = require('./lib/command-template');
-// const { update } = require('./lib/refresh');
+const { refresh } = require('./lib/command-refresh');
+
 const program = new Command('sql-cli');
 program.version(version);
 
@@ -21,11 +22,9 @@ template
     .action(create);
 
 program.addCommand(template);
-/*
-program.command('update')
-    .description('Create or update the configuration')
-    .action(update);
-*/
+
+program.command('refresh')
+    .description('Create or refresh the configuration')
+    .action(refresh);
 
 program.parse(process.argv);
-
