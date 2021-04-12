@@ -2,3 +2,5 @@
 node_modules
 *.iml
 ./*.sql
+.nyc_output
+coverage

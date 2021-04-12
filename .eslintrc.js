@@ -3,11 +3,11 @@ module.exports = {
     env: {
         node: true,
         browser: false,
-        es2021: true
+        es2021: true,
     },
     parserOptions: {
         ecmaVersion: 12,
-        sourceType: 'module'
+        sourceType: 'module',
     },
     rules: {
         indent: ['error', 4],

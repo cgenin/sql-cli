@@ -8,7 +8,10 @@
   },
   "scripts": {
     "eslint": "eslint lib",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "coverage": "nyc --all mocha",
+    "test": " mocha",
+    "quality": "npm run test && npm run eslint",
+    "prepublish": "npm run quality"
   },
   "keywords": [],
   "author": "",
@@ -16,6 +19,7 @@
   "dependencies": {
     "chalk": "^4.1.0",
     "commander": "^7.2.0",
+    "dotenv": "^8.2.0",
     "fs-extra": "^9.1.0",
     "inquirer": "^8.0.0",
     "mkdirs": "0.0.3",
@@ -24,6 +28,7 @@
   },
   "devDependencies": {
     "chai": "^4.3.4",
+    "chai-string": "^1.5.0",
     "co-mocha": "^1.2.2",
     "eslint": "^7.23.0",
     "eslint-config-airbnb": "^18.2.1",
@@ -33,19 +38,25 @@
     "eslint-plugin-react": "^7.23.1",
     "mocha": "^8.3.2",
     "nyc": "^15.1.0",
-    "sinon": "^10.0.0"
+    "sinon": "^10.0.1"
   },
   "nyc": {
     "include": [
-      "src/**/**.js",
-      "src/*.js"
+      "lib/**/**.js",
+      "lib/*.js"
     ],
     "exclude": [
-      "src/**/**.spec.js"
+      "lib/**/**.spec.js"
     ],
     "reporter": [
       "html",
       "text-summary"
     ]
+  },
+  "mocha": {
+    "require": [
+      "test/hooks.js"
+    ],
+    "spec": "lib/**/*.spec.js"
   }
 }
