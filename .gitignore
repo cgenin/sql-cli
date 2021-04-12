@@ -4,3 +4,4 @@ node_modules
 ./*.sql
 .nyc_output
 coverage
+./datas/hash.json

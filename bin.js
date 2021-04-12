@@ -1,9 +1,12 @@
 #!/usr/bin/env node
 
 const { Command } = require('commander');
+const dotenv = require('dotenv');
 const { version } = require('./package.json');
 const { ls, create } = require('./lib/command-template');
 const { refresh } = require('./lib/command-refresh');
+
+dotenv.config();
 
 const program = new Command('sql-cli');
 program.version(version);
